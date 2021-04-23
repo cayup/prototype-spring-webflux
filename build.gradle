@@ -1,0 +1,15 @@
+buildscript { apply from: "$rootDir/boozsoft/parent/boozsoft-dependencies/gradle/version.gradle" }
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependenciesManager}"
+    id 'java-library'
+}
+apply from: "$rootDir/boozsoft/parent/boozsoft-dependencies/gradle/dependenciesManager.gradle"
+
+sourceCompatibility = '15'
+
+
+apply plugin:'org.springframework.boot'
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-webflux'
+}

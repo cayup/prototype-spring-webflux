@@ -1,0 +1,53 @@
+//plugins {
+//    id 'org.springframework.boot' version '2.4.1'
+//    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+//    id 'java-library'
+//}
+
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
+    }
+    group = 'org.springbooz'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '15'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+            mavenBom("org.springframework.boot:spring-boot-starter-parent:${springBootVersion}")
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+        }
+        dependencies {
+
+            dependency 'io.r2dbc:r2dbc-spi:0.9.0.BUILD-SNAPSHOT'
+            dependency 'cn.hutool:hutool-all:5.3.7'
+            dependency 'de.codecentric:spring-boot-admin-starter-client:2.3.1'
+            dependency 'com.alibaba:fastjson:1.2.9'
+            dependency 'io.springfox:springfox-swagger2:3.0.0'
+            dependency 'io.springfox:springfox-swagger-ui:3.0.0'
+            dependency 'io.springfox:springfox-spring-webflux:3.0.0'
+            dependency 'com.github.xiaoymin:swagger-bootstrap-ui:1.9.6'
+            dependency 'io.swagger:swagger-annotations:1.5.21'
+            dependency 'io.swagger:swagger-models:1.5.21'
+            dependency 'org.projectlombok:lombok:1.18.16'
+
+            // booz-spring-cloud start
+            dependency 'org.springframework.retry:spring-retry:1.2.5.RELEASE'
+            dependency 'io.github.openfeign:feign-okhttp:10.4.0'
+            dependency 'de.codecentric:spring-boot-admin-starter-client:2.3.0'
+            dependency 'net.dreamlu:mica-auto:1.1.0'
+            dependency 'io.r2dbc:r2dbc-postgresql:0.8.6.RELEASE'
+            // booz-spring-cloud end
+        }
+    }
+
+}
