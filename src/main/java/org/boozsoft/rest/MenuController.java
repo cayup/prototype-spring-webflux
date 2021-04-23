@@ -15,14 +15,20 @@
  */
 package org.boozsoft.rest;
 
+import com.fasterxml.jackson.core.util.RequestPayload;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
+
+import java.util.List;
+import java.util.Map;
 
 
 @RestController
 @RequestMapping("/hello")
 public class MenuController {
-    @PostMapping("/x")
-    private String saveMenusByRoleId() {
-      return "sadsa";
+    @GetMapping("/x")
+    private Mono<String> saveMenusByRoleId(String list) {
+        return null;
     }
 }
