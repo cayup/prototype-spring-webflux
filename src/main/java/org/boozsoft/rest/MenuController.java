@@ -16,6 +16,7 @@
 package org.boozsoft.rest;
 
 import com.fasterxml.jackson.core.util.RequestPayload;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -28,7 +29,7 @@ import java.util.Map;
 @RequestMapping("/hello")
 public class MenuController {
     @GetMapping("/x")
-    private Mono<String> saveMenusByRoleId(String list) {
+    private Mono<String> saveMenusByRoleId(ServerHttpRequest request) {
         return null;
     }
 }
